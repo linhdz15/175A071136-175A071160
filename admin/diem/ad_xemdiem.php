@@ -26,6 +26,7 @@ require '../includes/config.php';
         <div style="text-align:center">
             <?php
             ?>
+            Học Kỳ
             <select name="hk" style="width:100px;height: 25px ">
                 <?php
                 $query="select MaHocKy from hocky";
@@ -35,6 +36,8 @@ require '../includes/config.php';
                 }
                 ?>
             </select>
+
+            Lớp
             <select name="lop" style="width:100px;height: 25px" >
                 <?php
                 $query2="select * from lophoc";
@@ -45,16 +48,19 @@ require '../includes/config.php';
                 ?>
 
             </select>
+
+            <a>Tên Môn Học</a>
             <select name="mon" style="width:100px;height: 25px">
                 <?php
                 $query3="select * from monhoc";
                 $results3=mysqli_query($conn,$query3);
                 while($data3=mysqli_fetch_assoc($results3)){
-                    echo "<option value='$data3[MaMonHoc]'>$data3[MaMonHoc]</option>";
+                    echo "<option value='$data3[TenMonHoc]'>$data3[TenMonHoc]</option>";
                 }
                 ?>
 
             </select>
+        </select>
             <p> <input type="submit" name="add" value="Chọn" style="width:100px;height: 25px"/ ></p>
 
         </div>
@@ -69,7 +75,7 @@ require '../includes/config.php';
         <td>Mã Lớp</td>
         <td>Mã Học Kỳ</td>
         <td>Mã Môn Học</td>
-        <td>Điểm chuyên cần</td>
+        <td>Đánh Giá</td>
         <td>Điểm kiểm tra giữa kỳ</td>
         <td>Điểm thực hành</td>
         <td>Điểm quá trình</td>
@@ -87,7 +93,7 @@ require '../includes/config.php';
     $students=$connect->alldiem();
     if(isset($_POST['add'])) {
         foreach ($students as $item) {
-            if($_POST['hk']==$item['MaHocKy'] && $_POST['lop']==$item['MaLopHoc'] && $_POST['mon']==$item['MaMonHoc']) {
+            if($_POST['hk']==$item['MaHocKy'] && $_POST['lop']==$item['MaLopHoc'] && $_POST['mon']==$item['TenMonHoc']) {
                 ?>
                 <tr>
                     <td><?php echo $item['Masv']; ?></td>
@@ -95,18 +101,13 @@ require '../includes/config.php';
                     <td><?php echo $item['MaLopHoc']; ?></td>
                     <td><?php echo $item['MaHocKy']; ?></td>
                     <td><?php echo $item['MaMonHoc']; ?></td>
-                    <td><?php echo $item['Diemchuyencan']; ?></td>
+                    <td><?php echo $item['DanhGia']; ?></td>
                     <td><?php echo $item['Diemktgiuaky']; ?></td>
                     <td><?php echo $item['DiemTH']; ?></td>
                     <td><?php echo $item['DiemQT']; ?></td>
                     <td><?php echo $item['Diemthikt']; ?></td>
                     <td><?php echo $item['Diemtongket']; ?></td>
-                    <?php
-                    $tinh = 0;
-                    $tinh = ($item['Diemchuyencan'] + $item['Diemktgiuaky'] + $item['DiemTH'] + ($item['DiemQT'] + $item['Diemthikt']) * 2 + $item['Diemtongket'] * 3) / 10;
-                    $item['DiemChu'] = $tinh;
-                    ?>
-                    <td><?php echo round($item['DiemChu'], 1); ?></td>
+                    <td><?php echo $item['DiemChu']; ?></td>
                     <td><?php echo "<a href='diem/suadiem.php?cma=$item[MaDiem]'><button type='button'>Sửa</button></a>"; ?></td>
                     <td><?php echo "<a href='diem/xoadiem.php?cma=$item[MaDiem]'  onclick='return XacNhan();'><button type='button'>Xóa</button></a>"; ?></td>
                 </tr>

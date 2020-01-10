@@ -76,7 +76,7 @@ if(isset($_POST['ok'])){
         $con=$connect->add($n,$ten,$h,$nam);
         ?>
         <script type="text/javascript">
-            alert("Bạn Đã Thêm Cột Diểm Thành Công.Nhấn OK Để Tiếp Tục !");
+            alert("Bạn Đã Thêm Học Kỳ Thành Công.Nhấn OK Để Tiếp Tục !");
             window.location="../index.php?mod=hk";
         </script>
         <?php

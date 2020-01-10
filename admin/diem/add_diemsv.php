@@ -25,15 +25,15 @@ session_start();
                 $lop = $_POST["lop$i"];
                 $mon = $_POST["mon$i"];
                 $hk = $_POST["hk$i"];
-                $mieng = $_POST["diem$i"];
+               $dgia = $_POST["diem$i"];
                 $p1 = $_POST["diem1$i"];
                 $p2 = $_POST["diem2$i"];
                 $t1 = $_POST["diem3$i"];
-                $t2 = $_POST["diem4$i"];
+               $p4 = $_POST["diem4$i"];
                 $d = $_POST["diem5$i"];
                 $tb=$_POST["diem6$i"];
-                $sql = "insert into diem(MaHocKy,MaMonHoc,Masv,MaLopHoc,Diemchuyencan,Diemktgiuaky,DiemTH,DiemQT,Diemthikt,Diemtongket,DiemChu )
- 							values('" . $hk . "','" . $mon . "','" . $ma . "','" . $lop . "','" . $mieng. "','".$p1."','".$p2."','".$t1."','".$t2."','".$d."','".$tb."')";
+                $sql = "insert into diem(MaHocKy,MaMonHoc,Masv,MaLopHoc,DanhGia,Diemktgiuaky,DiemTH,DiemQT,Diemthikt,Diemtongket,DiemChu )
+ 							values('" . $hk . "','" . $mon . "','" . $ma . "','" . $lop . "','" .$dgia. "','".$p1."','".$p2."','".$t1."','".$t22."','".$d."','".$tb."')";
                 $results1 = mysqli_query($conn, $sql);
                 ?>
                 <script type="text/javascript">
@@ -54,7 +54,7 @@ session_start();
             <td>Lớp</td>
             <td>Môn Học</td>
             <td>Học Kỳ</td>
-            <td>Điểm chuyên cần</td>
+            <td>Đánh Giá</td>
             <td>Điểm kiểm tra giữa kỳ</td>
             <td>Điểm thực hành</td>
             <td>Điểm quá trình</td>

@@ -45,6 +45,7 @@ if($_SESSION['ses_level']!=1) {
         }
     </style>
 <link rel="stylesheet" type="text/css" href="style.css">
+<title>TRANG QUẢN TRỊ VIÊN</title>
 <div id="menu" >
     <p style="font-family:Tahoma;font-weight: bold;text-align: center;font-size: large">CHÀO MỪNG BẠN ĐẾN TRANG QUẢN TRỊ HỆ THỐNG</p>
     <p style="font-family:Tahoma;font-weight: bold;text-align: center;font-size: large">TRƯỜNG ĐẠI HỌC THỦY LỢI</p>

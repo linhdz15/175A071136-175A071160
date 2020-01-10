@@ -75,22 +75,23 @@ if(isset($_POST['gv'])){
 
 <body>
 <div class="wrap">
+<h1 class="h1" style="font-family:Tahoma;text-align: center;" >ĐỔI MẬT KHẨU</h1>
+&ensp;
+		<form action="repass2.php" method="post">
+		<input type="text" name="txtpasssv" placeholder="mật khẩu cũ" required >
+		<div class="bar">
+			<i></i>
+		</div>
+		<input type="passuser" name="txtpasssv2" placeholder="mật khẩu mới" required>
+		<div class="bar">
+			<i></i>
+		</div>
+		<input type="password" name="txtpasssv3" placeholder="nhập lại mật khẩu mới" required>
+		<a href="" class="forgot_link">Làm mới</a>
+		<button><input type="submit" name="sv" value="Thay đổi" /></button>
+	</form>
     </div>
-    <form action="doimatkhau.php" method="post">
-        <input type="password" name="txtpassgv" placeholder="mật khẩu" required>
-        <div class="bar">
-            <i></i>
-        </div>
-        <input type="password" name="txtpassgv2" placeholder="mật khẩu mới" required>
-        <div class="bar">
-            <i></i>
-        </div>
-        <input type="password" name="txtpassgv3" placeholder="nhập lại mật khẩu mới" required>
-        <a href="" class="forgot_link">forgot ?</a>
-        <button><input type="submit" name="gv" value="Thay đổi" /></button>
-    </form>
-</div>
-
+    
 <script src="js/index.js"></script>
 
 </body>

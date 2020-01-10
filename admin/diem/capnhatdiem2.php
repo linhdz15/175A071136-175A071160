@@ -15,7 +15,7 @@ session_start();
 </head>
 <body bgcolor="#f0ffff">
 <?php
-// $ma=$lop=$hk=$mon=$mieng=$p1=$p2=$t1=$t2=$d="";
+// $ma=$lop=$hk=$mon=$dgia=$p1=$p2=$t1=$t22=$d="";
 if (isset($_POST['themdiem'])) {
     $ma2 = $_POST['madiem'];
     $ma = $_POST['ma'];
@@ -29,13 +29,13 @@ if (isset($_POST['themdiem'])) {
     </script>
     <?php
     }else{*/
-    $mieng = $_POST['diem'];
+   $dgia = $_POST['diem'];
 //}
 
 $p1 = $_POST['diem1'];
     $p2 = $_POST['diem2'];
     $t1 = $_POST['diem3'];
-    $t2 = $_POST['diem4'];
+   $p4 = $_POST['diem4'];
     $d = $_POST['diem5'];
     $tb = $_POST['diem6'];
     $query = "select * from diem";
@@ -46,11 +46,11 @@ $p1 = $_POST['diem1'];
                 MaMonHoc='$mon[$i]',
                 Masv='$ma[$i]',
                 MaLopHoc='$lop[$i]',
-                Diemchuyencan='$mieng[$i]',
+                DanhGia='$dgia[$i]',
                 Diemktgiuaky='$p1[$i]',
                 DiemTH='$p2[$i]',
                 DiemQT='$t1[$i]',
-                Diemthikt='$t2[$i]',
+                Diemthikt='$t22[$i]',
                 Diemtongket='$d[$i]',
                 DiemChu='$tb[$i]' 
                 where MaDiem=" .$ma2[$i] ;
@@ -73,7 +73,7 @@ $p1 = $_POST['diem1'];
         <td>Lớp</td>
         <td>Môn Học</td>
         <td>Học Kỳ</td>
-        <td>Điểm chuyên cần</td>
+        <td>Đánh Giá</td>
         <td>Điểm kiểm tra giữa kỳ</td>
         <td>Điểm thực hành</td>
         <td>Điểm quá trình</td>
@@ -119,7 +119,7 @@ $p1 = $_POST['diem1'];
                            value="<?php echo "$row[MaMonHoc]" ?>" readonly="readonly"/></td>
                 <td><input style="width:100px" type="text" name="hk[]"
                            value="<?php echo "$row[MaHocKy]" ?>" readonly="readonly"/></td>
-                <td><input style="width:100px" type="text" name="diem[]" value="<?php echo "$row[Diemchuyencan]" ;?>"/></td>
+                <td><input style="width:100px" type="text" name="diem[]" value="<?php echo "$row[DanhGia]" ;?>"/></td>
                 <td><input style="width:100px" type="text" name="diem1[]" value="<?php echo "$row[Diemktgiuaky]" ;?>"/></td>
                 <td><input style="width:100px" type="text" name="diem2[] ?>" value="<?php echo "$row[DiemTH]" ;?>"/></td>
                 <td><input style="width:100px" type="text" name="diem3[]?>" value="<?php echo "$row[DiemQT]" ;?>"/></td>

@@ -68,7 +68,7 @@ if(isset($_POST['ok'])){
 </head>
 
 <body>
-<div style="margin-top:60px;text-align: center;font-weight: bold;font-size: 25px;font-family: Tahoma ">TRƯỜNG ĐẠi HỌC THỦY LỢI</div>
+<div style="margin-top:60px;text-align: center;font-weight: bold;font-size: 25px;font-family: Tahoma ">TRƯỜNG ĐẠI HỌC THỦY LỢI</div>
 <div style="margin-top:20px;text-align: center;font-weight: bold;font-size: 25px;font-family: Tahoma ">TRANG QUẢN TRỊ</div>
   <div class="wrap">
 		<form action="login.php" method="post">

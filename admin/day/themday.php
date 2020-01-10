@@ -44,8 +44,8 @@ if(isset($_POST['ok'])){
         $con=$connect->add($ma,$mon,$gv,$lop,$hk,$pc);
         ?>
         <script type="text/javascript">
-            alert("Bạn Đã Thêm Cột Diểm Thành Công.Nhấn OK Để Tiếp Tục !");
-            window.location="../index.php?mod=hk";
+            alert("Bạn Đã Thêm Lịch Dạy Thành Công.Nhấn OK Để Tiếp Tục !");
+            window.location="../index.php?mod=day";
         </script>
         <?php
         exit();
@@ -128,7 +128,7 @@ if(isset($_POST['ok'])){
         </tr>
         <tr>
             <td> </td>
-            <td>  <input type="submit" name="ok" value="Thêm Học Kỳ" /><br/>
+            <td>  <input type="submit" name="ok" value="Thêm Lịch Dạy" /><br/>
             </td>
         </tr>
     </table>

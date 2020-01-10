@@ -51,7 +51,7 @@ if(isset($_POST['ok'])){
 	}else{
 		$p=$_POST['txtpasssv'];
 	}
-	if( $masv && $malop && $t && $gt && $ns && $nois && $dt && $cha && $me && $p){
+	if( $masv && $malop && $t && $gt && $ns && $nois &&$dt && $cha && $me && $p){
 		$query="update sinhvien set MaLopHoc='$malop',Tensv='$t',GioiTinh='$gt',NgaySinh='$ns',noisinh='$nois',dantoc='$dt',
 		hotencha='$cha',hotenme='$me',passwordsv='$p' where Masv='$masv'";
 		$results = mysqli_query($conn,$query);

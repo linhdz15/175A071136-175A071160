@@ -59,7 +59,7 @@ require "../includes/config.php";
         <td>Mã Lớp</td>
         <td>Mã Học Kỳ</td>
         <td>Mã Môn Học</td>
-        <td>Điểm chuyên cần</td>
+        <td>Đánh Giá</td>
         <td>Điểm kiểm tra giữa kỳ</td>
         <td>Điểm thực hành</td>
         <td>Điểm quá trình</td>
@@ -84,7 +84,7 @@ require "../includes/config.php";
                     <td><?php echo $item['MaLopHoc']; ?></td>
                     <td><?php echo $item['MaHocKy']; ?></td>
                     <td><?php echo $item['MaMonHoc']; ?></td>
-                    <td><?php echo $item['Diemchuyencan']; ?></td>
+                    <td><?php echo $item['DanhGia']; ?></td>
                     <td><?php echo $item['Diemktgiuaky']; ?></td>
                     <td><?php echo $item['DiemTH']; ?></td>
                     <td><?php echo $item['DiemQT']; ?></td>

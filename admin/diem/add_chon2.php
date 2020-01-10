@@ -66,24 +66,23 @@ if(isset($_POST['add'])) {
     $monhoc = $_POST['mon'];
     $hk = $_POST['hk'];
     if ($dayhoc && $monhoc && $hk) {
-        //header('location:add_diem.php');
-        // $ma=$lop=$hk=$mon=$mieng=$p1=$p2=$t1=$t2=$d="";
+       
         if (isset($_POST['themdiem'])) {
             $query = "select * from sinhvien";
             $results = mysqli_query($conn, $query);
             for ($i = 1; $i < ($row = mysqli_fetch_assoc($results)); $i++) {
-                //if ($row['MaLopHoc'] == $_POST['day']) {
+                
                     $ma = $_POST["ma$i"];
                     $lop = $_POST["lop$i"];
                     $mon = $_POST["mon$i"];
                     $hk = $_POST["hk$i"];
                     $diem="/^[0-1-2-3-4-5-6-7-8-9-10]$/";
                 if(preg_match($diem,$_POST["diem$i"])) {
-                    $mieng = $_POST["diem$i"];
+                   $dgia = $_POST["diem$i"];
                 }else{
                     ?>
                     <script type="text/javascript">
-                        alert("Ban Nhap Diem mieng Khong Hop Le!");
+                        alert("Ban Nhap Danh gia Khong Hop Le!");
                         window.location="add_diemsv.php";
                     </script>
                 <?php
@@ -96,7 +95,7 @@ if(isset($_POST['add'])) {
                 else{
                 ?>
             <script type="text/javascript">
-            alert("Ban Nhap Diem 15 phut lan 1 Khong Hop Le!");
+            alert("Ban Nhap Diem kt giua ky Khong Hop Le!");
             window.location="add_diemsv.php";
                 </script>
                 <?php
@@ -109,7 +108,7 @@ if(isset($_POST['add'])) {
                 else{
                 ?>
             <script type="text/javascript">
-            alert("Ban Nhap Diem 15 phut lan 2 Khong Hop Le!");
+            alert("Ban Nhap Diem thuc hanh Khong Hop Le!");
             window.location="add_diemsv.php";
              </script>
              <?php
@@ -122,7 +121,7 @@ if(isset($_POST['add'])) {
                          else{
                          ?>
                 <script type="text/javascript">
-                    alert("Ban Nhap Diem 1 tiet lan 1 Khong Hop Le!");
+                    alert("Ban Nhap Diem qua trinh Khong Hop Le!");
                     window.location="add_diemsv.php";
                 </script>
             <?php
@@ -135,7 +134,7 @@ if(isset($_POST['add'])) {
             else{
             ?>
             <script type="text/javascript">
-        alert("Ban Nhap Diem 1 tiet lan 2 Hop Le!");
+        alert("Ban Nhap Diem tong ket khong Hop Le!");
         window.location="add_diemsv.php";
              </script>
         <?php
@@ -157,8 +156,8 @@ if(isset($_POST['add'])) {
         exit();
         }
                     $tb = $_POST["diem6$i"];
-                    $sql = "insert into diem(MaHocKy,MaMonHoc,Masv,MaLopHoc,Diemchuyencan,Diemktgiuaky,DiemTH,DiemQT,Diemthikt,Diemtongket,DiemChu )
- 							values('" . $hk . "','" . $mon . "','" . $ma . "','" . $lop . "','" . $mieng . "','" . $p1 . "','" . $p2 . "','" . $t1 . "','" . $t2 . "','" . $d . "','" . $tb . "')";
+                    $sql = "insert into diem(MaHocKy,MaMonHoc,Masv,MaLopHoc,DanhGia,Diemktgiuaky,DiemTH,DiemQT,Diemthikt,Diemtongket,DiemChu )
+ 							values('" . $hk . "','" . $mon . "','" . $ma . "','" . $lop . "','" .$dgia . "','" . $p1 . "','" . $p2 . "','" . $t1 . "','" . $t2 . "','" . $d . "','" . $tb . "')";
                     $results1 = mysqli_query($conn, $sql);
                     header('location:add_diemsv.php');
 
@@ -175,7 +174,7 @@ if(isset($_POST['add'])) {
             <td>Lớp</td>
             <td>Môn Học</td>
             <td>Học Kỳ</td>
-            <td>Điểm chuyên cần</td>
+            <td>Đánh Giá</td>
             <td>Điểm kiểm tra giữa kỳ</td>
             <td>Điểm thực hành</td>
             <td>Điểm quá trình</td>

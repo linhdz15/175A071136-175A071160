@@ -1,5 +1,5 @@
 ﻿<?php
-$conn=mysqli_connect('localhost','root','','quanlydiem');
+$conn=mysqli_connect('localhost','root','','QLdiemsinhvien');
 if(mysqli_connect_errno() !== 0){
 	die("Không Thể Kết Nối Tới CSDL".mysqli_connect_errno);
 }

@@ -31,12 +31,11 @@ class day extends DB
         return $result;
     }
 
-    function add($id,$gv,$lop,$hk,$mon,$mota)
+    function add($id,$mon,$gv,$lop,$hk,$mota)
     {
         $con=$this->connect();
         $sql="insert into day(MaDayHoc,MaMonHoc,Magv,MaLopHoc,MaHocKy,MoTaPhanCong)
-        values('$id','$mon','$lop','$hk','$mota')
- ";
+        values('$id','$mon','$gv','$lop','$hk','$mota')";
         $query=mysqli_query($con,$sql);
         return $query;
     }

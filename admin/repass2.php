@@ -71,12 +71,13 @@ if(isset($_POST['sv'])){
 <body>
   <div class="wrap">
 <h1 class="h1" style="font-family:Tahoma;text-align: center;" >ĐỔI MẬT KHẨU</h1>
+&ensp;
 		<form action="repass2.php" method="post">
-		<input type="password" name="txtpasssv" placeholder="mật khẩu cũ" required >
+		<input type="text" name="txtpasssv" placeholder="mật khẩu cũ" required >
 		<div class="bar">
 			<i></i>
 		</div>
-		<input type="password" name="txtpasssv2" placeholder="mật khẩu mới" required>
+		<input type="passuser" name="txtpasssv2" placeholder="mật khẩu mới" required>
 		<div class="bar">
 			<i></i>
 		</div>

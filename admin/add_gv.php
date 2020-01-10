@@ -70,7 +70,7 @@ if(isset($_POST['ok'])){
 	$mamon=$_POST['mamonhoc'];
 	
 
-	if($m && $mamon && $t && $dc && $dt && $p ){
+	if($m && $mamon && $t && $dc &&$dt && $p ){
 		$giangvien=$con->add($m,$mamon,$t,$dc,$dt,$p);
 		?>
 		<script type="text/javascript">

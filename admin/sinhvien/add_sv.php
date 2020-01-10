@@ -7,7 +7,7 @@ if(isset($_POST['ok'])) {
 	if ($_POST['txtmasv'] == null) {
 		echo "Bạn Chưa Nhập Mã Sinh Viên!<br/>";
 	} else {
-		$rule="/^[0-9]{5}$/";
+		$rule="/^[0-9].{1,5}$/";
 		if(preg_match($rule,$_POST['txtmasv'])) {
 			$m = $_POST['txtmasv'];
 		}
@@ -78,7 +78,7 @@ if(isset($_POST['ok'])) {
 	}else{
 		$pass="/^[a-zA-Z0-9]{6,}$/";
 		if(preg_match($pass,$_POST['txtpasssv'])) {
-			$p = md5($_POST['txtpasssv']);
+			$p = $_POST['txtpasssv'];
 		}
 		else{
 			?>
@@ -91,7 +91,7 @@ if(isset($_POST['ok'])) {
 		}
 	}
 
-	if($m && $malop && $t && $gt && $ns && $nois && $dt && $cha &&$me && $p ){
+	if($m && $malop && $t && $gt && $ns && $nois &&$dt && $cha &&$me && $p ){
 		$sinhvien=$con->add($m,$malop,$t,$gt,$ns,$nois,$dt,$cha,$me,$p);
 		?>
 		<script type="text/javascript">
@@ -120,7 +120,7 @@ if(isset($_POST['ok'])) {
 <table align="center" border="1" cellspacing="0" cellpadding="10">
 	<tr>
 			<td>Mã Sinh viên:</td>
-			<td>  <input type="text" name="txtmasv" size="25" placeholder="5 số nguyên từ 0-9"/><br/>
+			<td>  <input type="text" name="txtmasv" size="25" placeholder="1 đến 5 số nguyên từ 0-9"/><br/>
 			</td>
 		</tr>
 <tr>

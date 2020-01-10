@@ -20,7 +20,7 @@ echo "Chào Bạn " .$_SESSION['ses_Tensv'];
 
     #menu ul a{
         text-decoration:none;
-        width:195px;
+        width:245px;
         float:left;
         background:#336699;
         color:#FFFFFF;
@@ -59,7 +59,7 @@ $students=$connect->allsv();
 </head>
 <body bgcolor="#CAFFFF">
 <br/>
-<h1 style="font-family:Tahoma;text-align: center;">THÔNG TIN Sinh viên</h1>
+<h1 style="font-family:Tahoma;text-align: center;">THÔNG TIN SINH VIÊN</h1>
 <table width="74%" border="1" cellspacing="0" cellpadding="10" style="margin-left:180px">
     <tr style="font-weight: bold;color: #0A246A">
         <td>Mã Sinh viên</td>

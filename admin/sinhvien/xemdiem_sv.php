@@ -18,7 +18,7 @@ echo "Chào Bạn  " .$_SESSION['ses_Tensv'];
     }
     #menu ul a{
         text-decoration:none;
-        width:195px;
+        width:245px;
         float:left;
         background:#336699;
         color:#FFFFFF;
@@ -36,7 +36,6 @@ echo "Chào Bạn  " .$_SESSION['ses_Tensv'];
 <div id="menu" >
 
     <ul>
-        <li><a href="index.html">Trang Chủ</a></li>
         <li><a href="xemdiem_sv.php">Tra Cứu Điểm</a></li>
         <li><a href="sinhvien_xemthongtin.php">Thông Tin Sinh viên</a></li>
         <li><a href="../repass2.php">Thay Đổi Mật Khẩu</a></li>
@@ -83,7 +82,7 @@ $dis=$connect->dong();
     <tr class="diem" style="font-weight: bold;color: #0A246A">
         <td>Học Kỳ</td>
         <td>Môn Học</td>
-        <td>Điểm chuyên cần</td>
+        <td>Đánh Giá</td>
         <td>Điểm kiểm tra giữa kỳ</td>
         <td>Điểm Thực hành</td>
         <td>Điểm quá trình</td>
@@ -99,29 +98,20 @@ $dis=$connect->dong();
                 <tr>
                 <td><?php echo $item['TenHocKy']; ?></td>
                 <td><?php echo $item['TenMonHoc']; ?></td>
-                <td><?php echo $item['Diemchuyencan']; ?></td>
+                <td><?php echo $item['DanhGia']; ?></td>
                 <td><?php echo $item['Diemktgiuaky']; ?></td>
                 <td><?php echo $item['DiemTH']; ?></td>
                 <td><?php echo $item['DiemQT']; ?></td>
                 <td><?php echo $item['Diemthikt']; ?></td>
                 <td><?php echo $item['Diemtongket']; ?></td>
+                <td><?php echo $item['DiemChu']; ?></td>
+                </tr>
                 <?php
-                $tinh = 0;
-                $tinh = ($item['Diemchuyencan'] + $item['Diemktgiuaky'] + $item['DiemTH'] + ($item['DiemQT'] + $item['Diemthikt']) * 2 + $item['Diemtongket'] * 3) / 10;
-                $item['DiemChu'] = $tinh;
-                ?>
-                <?php if ($item['Diemchuyencan'] != null || $item['Diemktgiuaky'] != null || $item['DiemTH'] != null || $item['DiemQT'] != null ||
-                    $item['Diemthikt'] != null
-                ) {
-                    ?>
-                    <td><?php echo round($item['DiemChu'],1); ?></td>
-                    </tr>
-                    <?php
                 }
             }
         }
     }
-    }
+
     ?>
 </table>
 

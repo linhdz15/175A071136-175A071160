@@ -2,57 +2,74 @@
 session_start();
 require "../../includes/config.php";
 $madiem=$_GET['cma'];
-$malop=$t=$gt=$ns=$nois=$dt=$cha=$me="";
+$diem=$diem1=$diem2=$diem3=$diem4=$diem5=$diem6="";
 if(isset($_POST['ok'])){
+
+    if($_POST['txthk'] == null){
+        echo "ban chua nhap hoc ky";
+    }else{
+        $mahk=$_POST['txthk'];
+    }
+    if($_POST['txtmamon'] == null){
+        echo "ban chua nhap ma mon";
+    }else{
+        $mamon=$_POST['txtmamon'];
+    }
     if($_POST['txtmalop'] == null){
-        echo "ban chua nhap ma lop hoc";
+        echo "ban chua nhap ma lop";
     }else{
         $malop=$_POST['txtmalop'];
     }
-    if($_POST['txtten'] == null){
-        echo "ban chua nhap ten";
+    if($_POST['txtmasv'] == null){
+        echo "ban chua nhap danh gia";
     }else{
-        $t=$_POST['txtten'];
+        $masv=$_POST['txtmasv'];
     }
-    if($_POST['txtgt'] == null){
-        echo "Bạn Chưa Nhập Vào giới tính";
+
+    if($_POST['diem'] == null){
+        echo "ban chua nhap danh gia";
     }else{
-        $gt=$_POST['txtgt'];
+        $diem=$_POST['diem'];
     }
-    if($_POST['txtns'] == null){
-        echo "Bạn Chưa Nhập Vào Ngày Sinh";
+    if($_POST['diem1'] == null){
+        echo "Bạn Chưa Nhập Vào Diem Thi Giua Ky";
     }else{
-        $ns=$_POST['txtns'];
+        $diem1=$_POST['diem1'];
     }
-    if($_POST['txtnois'] == null){
-        echo "Bạn Chưa Nhập Vào Nơi Sinh";
+    if($_POST['diem2'] == null){
+        echo "Bạn Chưa Nhập Vào Diem Thuc Hanh";
     }else{
-        $nois=$_POST['txtnois'];
+        $diem2=$_POST['diem2'];
     }
-    if($_POST['txtdantoc'] == null){
-        echo "Bạn Chưa Nhập Vào Dân Tộc";
+    if($_POST['diem3'] == null){
+        echo "Bạn Chưa Nhập Vào Diem Qua Trinh";
     }else{
-        $dt=$_POST['txtdantoc'];
+        $diem3=$_POST['diem3'];
     }
-    if($_POST['txtcha'] == null){
-        echo "Bạn Chưa Nhập Vào Họ Tên Cha";
+    if($_POST['diem4'] == null){
+        echo "Bạn Chưa Nhập Vào Diem Thi KT";
     }else{
-        $cha=$_POST['txtcha'];
+        $diem4=$_POST['diem4'];
     }
-    if($_POST['txtme'] == null){
-        echo "Bạn Chưa Nhập Vào Họ Tên Mẹ";
+    if($_POST['diem5'] == null){
+        echo "Bạn Chưa Nhập Vào Diem Tong ket";
     }else{
-        $me=$_POST['txtme'];
+        $diem5=$_POST['diem5'];
     }
-    if($_POST['txtpasssv'] == null){
-        echo "Bạn Chưa Nhập Vào Tên Sinh Viên";
+    if($_POST['diem6'] == null){
+        echo "Bạn Chưa Nhập Vao Diem Chu";
     }else{
-        $p=$_POST['txtpasssv'];
+        $diem6=$_POST['diem6'];
     }
-    if( $malop && $t && $gt&&$ns&&$nois&&$dt&&$cha&&$me&&$p ){
-        $query="update sinhvien set MaLopHoc='$malop',Tensv='$t',GioiTinh='$gt',NgaySinh='$ns',noisinh='$nois',dantoc='$dt',hotencha='$cha',hotenme='$me',passwordsv='$p' where Masv='$masv'";
+    if($mahk && $mamon && $masv && $malop && $diem && $diem1&&$diem2&&$diem3&&$diem4&&$diem5&&$diem6 ){
+        $query="update diem set MaHocKy='$mahk',MaMonHoc='$mamon', Masv='$masv', MaLopHoc='$malop',DanhGia='$diem',Diemktgiuaky='$diem1',DiemTH='$diem2',DiemQT='$diem3',Diemthikt='$diem4',Diemtongket='$diem5',DiemChu='$diem6' where MaDiem='$madiem'";
         $results = mysqli_query($conn,$query);
-        header("location:../index.php?mod=diem");
+        ?>
+        <script type="text/javascript">
+            alert("Bạn Đã Sửa Điểm Thành Công.Nhấn OK Để Tiếp Tục !");
+            window.location="../index.php?mod=diem";
+        </script>
+        <?php
         exit();
 
 
@@ -70,43 +87,47 @@ $row=mysqli_fetch_assoc($results);
     <form action="suadiem.php?cma=<?php echo $row['MaDiem']; ?>" method="post">
         <tr>
             <td>Mã Sinh viên</td>
-            <td><input type="text" name="txtmalop" size="25" value="<?php echo $row['Masv']; ?>" readonly="readonly"/></td>
+            <td><input type="text" name="txtmasv" size="25" value="<?php echo $row['Masv']; ?>" readonly="readonly"/></td>
         </tr>
 
         <tr>
             <td>Mã Lớp</td>
-            <td><input type="text" name="txtten" size="25" value="<?php echo $row['MaLopHoc']; ?>" readonly="readonly"/></td>
+            <td><input type="text" name="txtmalop" size="25" value="<?php echo $row['MaLopHoc']; ?>" readonly="readonly"/></td>
         </tr>
         <tr>
             <td>Mã Môn</td>
-            <td><input type="text" name="txtten" size="25" value="<?php echo $row['MaMonHoc']; ?>" readonly="readonly"/></td>
+            <td><input type="text" name="txtmamon" size="25" value="<?php echo $row['MaMonHoc']; ?>" readonly="readonly"/></td>
         </tr>
         <tr>
             <td>Mã Học Kỳ</td>
-            <td><input type="text" name="txtns" size="25" value="<?php echo $row['MaHocKy']; ?>" readonly="readonly"/> </td>
+            <td><input type="text" name="txthk" size="25" value="<?php echo $row['MaHocKy']; ?>" readonly="readonly"/> </td>
         </tr>
         <tr>
-            <td>Điểm chuyên cần</td>
-            <td><input type="text" name="txtnois" size="25" value="<?php echo $row['Diemchuyencan']; ?>"/> </td>
+            <td>Đánh Giá</td>
+            <td><input type="text" name="diem" size="25" value="<?php echo $row['DanhGia']; ?>"/> </td>
         </tr>
         <tr>
             <td>Điểm kiểm tra giữa kỳ</td>
-            <td><input type="text" name="txtdantoc" size="25" value="<?php echo $row['Diemktgiuaky']; ?>"/> </td>
+            <td><input type="text" name="diem1" size="25" value="<?php echo $row['Diemktgiuaky']; ?>"/> </td>
         </tr>
         <tr>
             <td>Điểm thực hành</td>
-            <td><input type="text" name="txtcha" size="25" value="<?php echo $row['DiemTH']; ?>"/> </td>
+            <td><input type="text" name="diem2" size="25" value="<?php echo $row['DiemTH']; ?>"/> </td>
         </tr>
         <tr>
             <td>Điểm quá trình</td>
-            <td><input type="text" name="txtme" size="25" value="<?php echo $row['DiemQT']; ?>"/> </td>
+            <td><input type="text" name="diem3" size="25" value="<?php echo $row['DiemQT']; ?>"/> </td>
         </tr>
         <tr>
             <td>Điểm thi kết thúc học phần</td>
-            <td><input type="text" name="txtpasssv" size="25" value="<?php echo $row['Diemthikt']; ?>" /></td>
+            <td><input type="text" name="diem4" size="25" value="<?php echo $row['Diemthikt']; ?>" /></td>
         </tr>
         <td>Điểm tổng kết</td>
-        <td><input type="text" name="txtten" size="25" value="<?php echo $row['Diemtongket']; ?>" /></td>
+        <td><input type="text" name="diem5" size="25" value="<?php echo $row['Diemtongket']; ?>" /></td>
+        </tr>
+        </tr>
+        <td>Điểm Chữ</td>
+        <td><input type="text" name="diem6" size="25" value="<?php echo $row['DiemChu']; ?>" /></td>
         </tr>
         <tr>
             <td></td>

@@ -6,7 +6,7 @@ if($_SESSION['ses_level']!=1) {
 }
 
 ?>
-        <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <script type="text/javascript">
 function XacNhan(){
 	if(!window.confirm('Bạn Có Chắc Muốn Xóa Sinh viên Này Không!!!')){
@@ -14,34 +14,19 @@ function XacNhan(){
 	}
 }
 </script>
-<H1 align="center" style="font-family: Tahoma">Quản Lý Sinh viên</H1>
-<h2 align="center"><a href="sinhvien/add_sv.php"><button type='button'>Thêm Sinh viên</button> </a></h2>
-<?php
-?>
-
-<form method="post">
-	<select name="malophoc">
-			<?php
-			$con=new sinhvien();
-			$data=$con->alllop();
-			while($data){
-				echo "<option value='$data[MaLopHoc]'>$data[MaLopHoc]</option>";
-			}
-			?>
-
-		</select>
-</form>
-<table align='center' width='90%' border='1' cellspacing="0" cellpadding="10" >
-<tr style="font-family: Tahoma;color: #0000bf;font-weight: bold">
+<H1 align="center" style="font-family: Tahoma">Quản Lý Sinh Viên</H1>
+<h2 align="center"><a href="./sinhvien/add_sv.php"><button type='button'>Thêm Sinh Viên</button> </a></h2>
+<table align='center' width='1000' border='1' cellspacing="0" cellpadding="10" >
+<tr style="color: #0000bf;font-weight: bold">
 <td>STT</td>
 <td>Mã Sinh Viên</td>
 <td>Mã Lớp Học</td>
-<td>Tên Sinh viên</td>
-<td>Giới tính</td>
+<td>Tên Sinh Viên</td>
+<td>Giới Tính</td>
 <td>Ngày Sinh</td>
-<td>Nơi Sinh</td>
+<td>Quê Quán</td>
 <td>Dân Tộc</td>
-<td>Họ Tên Cha</td>
+<td>Họ Tên Bố</td>
 <td>Họ Tên Mẹ</td>
 <td>Sửa</td>
 <td>Xóa</td>

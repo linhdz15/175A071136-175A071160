@@ -30,7 +30,7 @@ if(isset($_POST['ok'])){
 	}else{
 		$p=$_POST['txtpass'];
 	}
-	if($mamon && $t && $dc && $dt && $p){
+	if($mamon && $t && $dc &&$dt && $p){
 		$giangvien=$con->edit($ma,$mamon,$t,$dc,$dt,$p);
 		header("location:index.php?mod=gv");
 		$dis=$con->dis();

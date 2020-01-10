@@ -74,15 +74,14 @@ if(isset($_POST['gv'])){
 
 <body>
   <div class="wrap">
-		<div class="avatar">
-      <img src="../giaodien/img/images/gv.jpg">
-		</div>
+  <h1 class="h1" style="font-family:Tahoma;text-align: center;" >ĐỔI MẬT KHẨU</h1>
+  &ensp;
 		<form action="repass1.php" method="post">
-		<input type="password" name="txtpassgv" placeholder="mật khẩu" required>
+		<input type="text" name="txtpassgv" placeholder="mật khẩu" required>
 		<div class="bar">
 			<i></i>
 		</div>
-		<input type="password" name="txtpassgv2" placeholder="mật khẩu mới" required>
+		<input type="passuser" name="txtpassgv2" placeholder="mật khẩu mới" required>
 		<div class="bar">
 			<i></i>
 		</div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 29, 2019 lúc 10:52 AM
+-- Thời gian đã tạo: Th1 10, 2020 lúc 07:59 AM
 -- Phiên bản máy phục vụ: 10.1.34-MariaDB
 -- Phiên bản PHP: 7.2.7
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `quanlydiem`
+-- Cơ sở dữ liệu: `qldiemsinhvien`
 --
 
 -- --------------------------------------------------------
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `day` (
-  `MaDayHoc` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
-  `MaMonHoc` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
-  `Magv` int(6) NOT NULL,
+  `MaDayHoc` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MaMonHoc` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Magv` int(4) NOT NULL,
   `MaLopHoc` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MaHocKy` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `MaHocKy` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `MoTaPhanCong` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -42,7 +42,10 @@ CREATE TABLE `day` (
 --
 
 INSERT INTO `day` (`MaDayHoc`, `MaMonHoc`, `Magv`, `MaLopHoc`, `MaHocKy`, `MoTaPhanCong`) VALUES
-('001', 'T', 1010, '59TH1', '12016', 'day');
+('100', 'A', 1010, '59KT1', '12016', 'day'),
+('101', 'CTDLGT', 1012, '59KT1', '12016', 'day'),
+('102', 'H', 1016, '59KT1', '12016', 'day'),
+('103', 'A', 1501, '59KT1', '12016', 'day');
 
 -- --------------------------------------------------------
 
@@ -56,7 +59,7 @@ CREATE TABLE `diem` (
   `MaMonHoc` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `Masv` int(6) NOT NULL,
   `MaLopHoc` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `Diemchuyencan` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
+  `DanhGia` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `Diemktgiuaky` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `DiemTH` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `DiemQT` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
@@ -69,9 +72,9 @@ CREATE TABLE `diem` (
 -- Đang đổ dữ liệu cho bảng `diem`
 --
 
-INSERT INTO `diem` (`MaDiem`, `MaHocKy`, `MaMonHoc`, `Masv`, `MaLopHoc`, `Diemchuyencan`, `Diemktgiuaky`, `DiemTH`, `DiemQT`, `Diemthikt`, `Diemtongket`, `DiemChu`) VALUES
-(2, '12016', 'T', 2, '59TH1', '7', '7', '7', '7', '7', 7, 'B'),
-(3, '12016', 'T', 3, '59TH1', '6', '6', '6', '6', '6', 6, 'C');
+INSERT INTO `diem` (`MaDiem`, `MaHocKy`, `MaMonHoc`, `Masv`, `MaLopHoc`, `DanhGia`, `Diemktgiuaky`, `DiemTH`, `DiemQT`, `Diemthikt`, `Diemtongket`, `DiemChu`) VALUES
+(2, '12016', 'T', 2, '59TH1', 'DAT', '7', '8', '7', '7', 7, 'B'),
+(3, '12016', 'T', 3, '59TH1', 'DAT', '6', '6', '6', '6', 6, 'C');
 
 -- --------------------------------------------------------
 
@@ -95,8 +98,10 @@ CREATE TABLE `giangvien` (
 --
 
 INSERT INTO `giangvien` (`Magv`, `MaMonHoc`, `Makhoa`, `Tengv`, `DiaChi`, `SDT`, `hocvi`, `passwordgv`) VALUES
-(1010, 'T', NULL, 'Lê Thị Ngọc Hân', 'Hà Nội          ', '01226156288', '', '123456'),
+(1010, 'T', NULL, 'Lê Thị Ngọc', 'Hà Nội           ', '01226156288', '', '123456'),
 (1012, 'A', NULL, 'Đinh Thị Ngoc Diệp', 'Hà Nội      ', '0190919008', '', '123456'),
+(1016, 'S', NULL, 'Lê Văn Nam', 'Hà Nội', '0123333333', '', '123456'),
+(1020, 'TA2', NULL, 'Lê văn A', ' Ha Noi', '0356106140', '', 'e10adc3949ba59abbe56e057f20f883e'),
 (1501, 'S', NULL, 'Trần Thị Ngọc Sử', 'Hà Nội\r\n   ', '05167654156', '', '123456');
 
 -- --------------------------------------------------------
@@ -118,7 +123,13 @@ CREATE TABLE `hocky` (
 
 INSERT INTO `hocky` (`MaHocKy`, `TenHocKy`, `HeSoHK`, `NamHoc`) VALUES
 ('12016', '2016-2017', 1, '2016-2017'),
-('12017', '2017-2018', 1, '2017-2018');
+('12017', '2017-2018', 1, '2017-2018'),
+('12018', '2018-2019', 1, '2018-2019'),
+('12019', '2019-2020', 1, '2019-2020'),
+('22016', '2016-2017', 2, '2016-2017'),
+('22017', '2017-2018', 2, '2017-2018'),
+('22018', '2018-2019', 2, '2018-2019'),
+('22019', '2019-2020', 2, '2019-2020');
 
 -- --------------------------------------------------------
 
@@ -130,6 +141,13 @@ CREATE TABLE `khoa` (
   `Makhoa` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `Tenkhoa` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `khoa`
+--
+
+INSERT INTO `khoa` (`Makhoa`, `Tenkhoa`) VALUES
+('cntt', 'Công Nghệ Thông Tin');
 
 -- --------------------------------------------------------
 
@@ -178,12 +196,11 @@ INSERT INTO `monhoc` (`MaMonHoc`, `TenMonHoc`, `SoTiet`, `Sotinchi`) VALUES
 ('CTDLGT', 'Cấu trúc dữ liệu và giải thuật', 60, 3),
 ('H', 'Pháp Luật đại cương', 60, 3),
 ('LTTT11', 'Lý Thuyết Tính Toán', 60, 3),
+('MMtinh', 'Mạng Máy Tính', 60, 3),
 ('S', 'Công Nghệ Web', 60, 3),
 ('T', 'Phân Tích Thiết kế hệ thống thông tin', 60, 3),
 ('TA2', 'Tiếng Anh 2', 50, 3),
-('TA3', 'Tiếng Anh 3', 60, 3),
-('Ti', 'Tin Học Đại Cương', 60, 3),
-('TN', 'Mạng Máy Tính', 60, 3);
+('TA3', 'Tiếng Anh 3', 60, 3);
 
 -- --------------------------------------------------------
 
@@ -210,18 +227,17 @@ CREATE TABLE `sinhvien` (
 --
 
 INSERT INTO `sinhvien` (`Masv`, `MaLopHoc`, `Makhoa`, `Tensv`, `GioiTinh`, `NgaySinh`, `noisinh`, `dantoc`, `hotencha`, `hotenme`, `passwordsv`) VALUES
-(0, '59KT1', NULL, 'Lê văn A', 'Nam', '2000-01-10', 'thanh hóa', 'kinh', 'Lê văn B', 'Nguyễn thị C', 'e10adc3949ba59abbe56e057f20f883e'),
 (1, '59KT1', NULL, 'Nguyễn Tuấn Linh', 'Nam', '1999-01-05', 'thanh hóa', 'kinh', 'Lê văn B', 'Nguyễn thị C', '123456'),
-(2, '59TH1', NULL, 'Trần Quang Huy', 'Nam', '1999-09-11', 'Thái Bình', 'kinh', 'Lê văn B', 'Nguyễn thị C', 'e10adc3949ba59abbe56e057f20f883e'),
-(3, '59TH1', NULL, 'Lê Văn Nam', 'Nam', '1999-01-05', 'Hà Nội', 'kinh', 'Lê văn B', 'Nguyễn thị C', 'e10adc3949ba59abbe56e057f20f883e'),
-(4, '59KT1', NULL, 'Nguyễn Tuấn Vũ', 'Nam', '1998-11-12', 'Hà Nội', 'kinh', 'Lê văn B', 'Nguyễn thị C', '25f9e794323b453885f5181f1b624d0b'),
-(5, '59PM1', NULL, 'Lê Đức Anh', 'Nam', '1998-09-11', 'Thái Bình', 'kinh', 'Lê văn B', 'Nguyễn thị C', 'e10adc3949ba59abbe56e057f20f883e'),
-(6, '59PM2', NULL, 'Trần Thị Ánh', 'Nữ', '1999-02-03', 'Hà Nội', 'kinh', 'Lê văn B', 'Nguyễn thị C', 'e10adc3949ba59abbe56e057f20f883e'),
-(8, '59KT1', NULL, 'Lê văn A', 'Nam', '1999-02-03', 'thanh hóa', 'kinh', 'Lê văn B', 'Nguyễn thị C', 'e10adc3949ba59abbe56e057f20f883e'),
-(9, '59KT1', NULL, 'Lê văn A', 'Nam', '1999-02-03', 'thanh hóa', 'kinh', 'Lê văn B', 'Nguyễn thị C', 'e10adc3949ba59abbe56e057f20f883e'),
-(10, '59KT1', NULL, 'Lê văn A', 'Nam', '1999-08-08', 'Hà Nội', 'kinh', 'Lê văn B', 'Nguyễn thị C', 'e10adc3949ba59abbe56e057f20f883e'),
-(11, '59KT1', NULL, 'Lê văn A', 'Nam', '1998-01-01', 'Hà Nội', 'kinh', 'Lê văn B', 'Nguyễn thị C', 'e10adc3949ba59abbe56e057f20f883e'),
-(12, '60PM1', NULL, 'Lê văn A', 'Nam', '2000-02-03', 'thanh hóa', 'kinh', 'Lê văn B', 'Nguyễn thị C', 'e10adc3949ba59abbe56e057f20f883e');
+(2, '59TH1', 'cntt', 'Trần Quang Huy', 'Nam', '1999-09-11', 'Thái Bình', 'kinh', 'Lê văn B', 'Nguyễn thị C', '123456'),
+(3, '59TH1', NULL, 'Lê Văn Nam', 'Nam', '1999-01-05', 'Hà Nội', 'kinh', 'Lê văn B', 'Nguyễn thị C', '123456'),
+(4, '59KT1', NULL, 'Lê văn An', 'Nam', '1999-01-05', 'Hà Nội', 'kinh', 'Lê văn B', 'Nguyễn thị C', '123456'),
+(5, '59KT1', NULL, 'Lê Thị Vân', 'Nữ', '1999-07-08', 'Hà Nội', 'kinh', 'Lê văn B', 'Nguyễn thị C', '123456'),
+(6, '59KT1', NULL, 'Vũ Văn Giáp', 'Nam', '1999-03-04', 'Hà Nội', 'kinh', 'Vũ văn B', 'Nguyễn thị C', '123456'),
+(7, '59PM1', NULL, 'Lê Đức Anh', 'Nam', '1999-02-02', 'thanh hóa', 'kinh', 'Lê văn B', 'Nguyễn thị C', '123456'),
+(8, '59PM1', NULL, 'Nguyễn Ngọc Anh', 'Nữ', '1999-03-04', 'thanh hóa', 'kinh', 'Nguyễn Văn', 'Nguyễn thị C', '123456'),
+(9, '59PM2', NULL, 'Lê Thị Hạnh', 'Nữ', '1999-01-01', 'Hà Nội', 'kinh', 'Lê văn B', 'Nguyễn thị C', '123456'),
+(10, '59KT1', NULL, 'Lê văn A', 'Nam', '1999-01-01', 'thanh hóa', 'kinh', 'Lê văn B', 'Nguyễn thị C', '123456'),
+(11, '59KT1', NULL, 'Lê văn A', 'Nam', '1999-01-01', 'thanh hóa', 'kinh', 'Lê văn B', 'Nguyễn thị C', '123456');
 
 -- --------------------------------------------------------
 
@@ -253,9 +269,9 @@ INSERT INTO `user` (`userid`, `username`, `password`, `level`) VALUES
 --
 ALTER TABLE `day`
   ADD PRIMARY KEY (`MaDayHoc`),
-  ADD KEY `fk_day_monhoc` (`MaMonHoc`),
+  ADD KEY `fk_day_mh` (`MaMonHoc`),
+  ADD KEY `fk_day_hk` (`MaHocKy`),
   ADD KEY `fk_day_gv` (`Magv`),
-  ADD KEY `fk_day_hocky` (`MaHocKy`),
   ADD KEY `fk_day_lophoc` (`MaLopHoc`);
 
 --
@@ -340,9 +356,9 @@ ALTER TABLE `user`
 --
 ALTER TABLE `day`
   ADD CONSTRAINT `fk_day_gv` FOREIGN KEY (`Magv`) REFERENCES `giangvien` (`Magv`),
-  ADD CONSTRAINT `fk_day_hocky` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
+  ADD CONSTRAINT `fk_day_hk` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
   ADD CONSTRAINT `fk_day_lophoc` FOREIGN KEY (`MaLopHoc`) REFERENCES `lophoc` (`MaLopHoc`),
-  ADD CONSTRAINT `fk_day_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`);
+  ADD CONSTRAINT `fk_day_mh` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`);
 
 --
 -- Các ràng buộc cho bảng `diem`

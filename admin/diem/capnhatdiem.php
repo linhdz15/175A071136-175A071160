@@ -67,7 +67,7 @@ if(isset($_POST['add'])) {
     $hk = $_POST['hk'];
     if ($dayhoc && $monhoc && $hk) {
         //header('location:add_diem.php');
-        // $ma=$lop=$hk=$mon=$mieng=$p1=$p2=$t1=$t2=$d="";
+        // $ma=$lop=$hk=$mon=$dgia=$p1=$p2=$t1=$t2=$d="";
         if (isset($_POST['themdiem'])) {
                 //if ($row['MaLopHoc'] == $_POST['day']) {
                 $ma2 = $_POST['madiem'];
@@ -82,12 +82,12 @@ if(isset($_POST['add'])) {
                 </script>
     <?php
             }else{
-                $mieng = $_POST['diem'];
+                $dgia = $_POST['diem'];
 
             }*/
-         $diem="/^[0-1-2-3-4-5-6-7-8-9-10]$/";
-            if(preg_match($diem,$_POST["diem"])) {
-         $mieng = $_POST["diem"];
+         $dgia="/^[0-1-2-3-4-5-6-7-8-9-10]$/";
+            if(preg_match($dgia,$_POST["diem"])) {
+         $dgia = $_POST["diem"];
             }else{
           ?>
         <script type="text/javascript">
@@ -178,7 +178,7 @@ if(isset($_POST['add'])) {
                 MaMonHoc='$mon[$i]',
                 Masv='$ma[$i]',
                 MaLopHoc='$lop[$i]',
-                Diemchuyencan='$mieng[$i]',
+                Diemchuyencan='$dgia[$i]',
                 Diemktgiuaky='$p1[$i]',
                 DiemTH='$p2[$i]',
                 DiemQT='$t1[$i]',

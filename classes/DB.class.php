@@ -4,7 +4,7 @@ class DB
 	var $host = 'localhost';
     	var $user = 'root';
     	var $pass = '';
-    	var $db = 'quanlydiemsv';
+    	var $db = 'QLdiemsinhvien';
     var $myconn;
     function connect()
     {
